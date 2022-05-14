@@ -79,7 +79,7 @@ async def get_movie(event):
                     btn = Button.url("TMDB",tm)
 
                 desc = f"year: {date.split('-')[0]}, ratings: {rating}"
-                text = f"""**Name : **{title}\n**Genres : **{', '.join(gen)}\n**Release : **{date}\n**Average Rating : **{rating}\n\n**Overview : **__{overview}__[‎]({thumb})"""
+                text = f"""**Name : **{title}\n**Genres : **{', '.join(gen)}\n**Release : **{date}\n**Average Rating : **{rating}\n\n**Overview : **__{overview}__\n[‎]({thumb})"""
 
 
                 s.append(b.article(title=title,description=desc,thumb = wb(thumb, 0,"image/jpeg", []),text=text,buttons=btn))
