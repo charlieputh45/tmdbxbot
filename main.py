@@ -32,7 +32,8 @@ for g in all_genre:
 
 @bot.on(events.NewMessage(pattern="/start"))
 async def start(e):
-    await bot.send_message(e.chat_id,"Use bot in inline mode \n\n@tmdbxbot <query>")
+    user = await e.get_sender()
+    await bot.send_message(e.chat_id,f"Welcome [{user.first_name}](tg://user?id={user.id}), This bot searches TheMovieDB database to get info abt movies or tv shows",buttons=Button.switch_inline(text="Search",same_peer=True))
 
 
 img_prefix = "https://image.tmdb.org/t/p/original"
