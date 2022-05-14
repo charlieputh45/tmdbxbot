@@ -49,6 +49,7 @@ async def get_movie(event):
         a = t + m
         s = []
         err404 = "https://img.freepik.com/free-vector/error-404-nothing-found-banner_18591-27319.jpg"
+        a = sorted(a, key=lambda d: d['popularity'],reverse=True)
         for i in a:
             try:
                 img = i.get('poster_path')
