@@ -1,7 +1,7 @@
 # tmdbxbot
 a simple telegram inline bot to fetch data from tmdb
 
-#env-vars
+##env-vars
 
 - tmdb api key
 - telegram api hash
