@@ -36,7 +36,7 @@ async def start(e):
     await bot.send_message(e.chat_id,f"Welcome [{user.first_name}](tg://user?id={user.id}), This bot searches TheMovieDB database to get info abt movies or tv shows",buttons=Button.switch_inline(text="Search",same_peer=True))
 
 
-img_prefix = "https://image.tmdb.org/t/p/original"
+img_prefix = "https://image.tmdb.org/t/p/w500"
 
 @bot.on(events.InlineQuery)
 async def get_movie(event):
@@ -49,6 +49,7 @@ async def get_movie(event):
         t = tv.search(event.text)
         a = t + m
         s = []
+        print(event.text)
         err404 = "https://img.freepik.com/free-vector/error-404-nothing-found-banner_18591-27319.jpg"
         a = sorted(a, key=lambda d: d['popularity'],reverse=True)
         for i in a:
@@ -83,13 +84,13 @@ async def get_movie(event):
                 text = f"""**Name : **{title}\n**Genres : **{', '.join(gen)}\n**Release : **{date}\n**Average Rating : **{rating}\n\n**Overview : **__{overview}__\n[‎]({thumb})"""
 
 
-                s.append(b.article(title=title,description=desc,thumb = wb(thumb, 0,"image/jpeg", []),text=text,buttons=btn))
+                s.append(await b.article(title=title,description=desc,thumb = wb(thumb, 0,"image/jpeg", []),text=text,buttons=btn))
 
             except Exception as e:
                 print(e)
         
         if s == []:
-            s.append(b.article(title="Nothing Found!",description="pls check your query and try again", thumb = wb(err404, 0,"image/jpeg", []),text=f"Nothing Found! \npls check your query and try again[‎]({err404})"))
+            s.append(await b.article(title="Nothing Found!",description="pls check your query and try again", thumb = wb(err404, 0,"image/jpeg", []),text=f"Nothing Found! \npls check your query and try again[‎]({err404})"))
 
         await event.answer(s)
 
