@@ -36,7 +36,7 @@ async def start(e):
     await bot.send_message(e.chat_id,f"Welcome [{user.first_name}](tg://user?id={user.id}), This bot searches TheMovieDB database to get info abt movies or tv shows",buttons=Button.switch_inline(text="Search",same_peer=True))
 
 
-img_prefix = "https://image.tmdb.org/t/p/original"
+img_prefix = "https://image.tmdb.org/t/p/w500"
 
 @bot.on(events.InlineQuery)
 async def get_movie(event):
