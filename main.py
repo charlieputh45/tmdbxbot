@@ -84,7 +84,7 @@ async def get_movie(event):
                 text = f"""**Name : **{title}\n**Genres : **{', '.join(gen)}\n**Release : **{date}\n**Average Rating : **{rating}\n\n**Overview : **__{overview}__\n[‎]({thumb})"""
 
 
-                s.append(b.article(title=title,description=desc,thumb = wb(thumb, 0,"image/jpeg", []),text=text,buttons=btn,link_preview = True))
+                s.append(await b.article(title=title,description=desc,thumb = wb(thumb, 0,"image/jpeg", []),text=text,buttons=btn))
 
             except Exception as e:
                 print(e)
