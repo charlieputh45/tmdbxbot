@@ -49,7 +49,7 @@ async def get_movie(event):
         t = tv.search(event.text)
         a = t + m
         s = []
-        print(event.text)
+        #print(event.text)
         err404 = "https://img.freepik.com/free-vector/error-404-nothing-found-banner_18591-27319.jpg"
         a = sorted(a, key=lambda d: d['popularity'],reverse=True)
         for i in a:
