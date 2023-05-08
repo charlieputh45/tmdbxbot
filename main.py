@@ -5,6 +5,7 @@ from tmdbv3api import Movie
 from telethon import Button, events,TelegramClient
 from telethon.tl.types import InputWebDocument as wb
 import os
+from keep_alive import keep_alive
 
 
 tmdb = TMDb()
@@ -95,4 +96,5 @@ async def get_movie(event):
         await event.answer(s)
 
 bot.start()
+keep_alive()
 bot.run_until_disconnected()
